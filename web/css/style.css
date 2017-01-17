@@ -1,0 +1,581 @@
+* { box-sizing: border-box; }
+
+.row:after 
+{
+    content: "";
+    clear: both;
+    display: block;
+}
+
+[class*="col-"] 
+{
+		float: left;
+		padding:8px;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+
+@media screen and (max-width: 768px) 
+{
+	.case {width: 100% !important;;}
+	.icone {margin-right: 22% !important;}
+}
+
+@media screen and (max-width: 1000px)
+{
+	[class*="col-"] 
+	{
+		width: 100%;
+		padding:0px;
+	}
+	.tri a
+	{
+	margin-left : 10%;
+	}
+	.comptetab, .inscription, .panier, .achat, .resultat, .inscrire
+	{
+		margin-left : 0 !important;
+	}
+	
+}
+
+
+
+
+body
+{
+	background-image: url(../images/fond.png);
+	padding: 0;
+	margin: 0;
+}
+
+
+/* En tête */
+header 
+{
+	position : relative ;
+	background-image: url(../images/fond_header.png)
+}
+
+#logo
+{  
+	position : relative ; 
+	max-width : 20% ;
+	height : auto ;
+	margin-left: 4%;
+}
+
+#titre 
+{
+	font-family : Impact;
+	font-size : 200%;
+	margin-top: 1%;
+	margin-left: 1%;
+	position : absolute ;
+	text-decoration: none;
+ 	color: black; 
+}
+ 
+.header_right
+{
+		padding : 12px;
+}
+
+#recherche 
+{ 
+	position : relative;
+	margin-left : 7% ;
+	margin-top : 2%;
+	display: inline-block;
+	
+}
+
+#barre
+{
+	width: 90%;
+	height: 1cm;
+}
+
+#loupe
+{
+	width : 6%;
+}	
+
+.icone
+{ 
+	display: inline-block;
+	position : relative ;
+	width : 6% ;
+	margin-right : 7% ;
+	float: right;
+}
+
+
+/* Menu */
+
+#menu
+{
+	padding:0;
+	margin:1px;
+	list-style-type:none;
+	margin-top: 1px;
+}
+#menu .col-2
+{
+	padding: 0;
+
+}
+#menu li a 
+{
+    display: block;
+    float: left;
+    width: 33.3%;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    border: 3px groove;
+    border-color: #DCDCDC #696969 #696969 #DCDCDC;
+	background-image: url(../images/fond_menu.png);
+	font-family : Arial;
+	font-weight : bold;
+}
+
+#menu li a:hover 
+{
+	background-color:#D3D3D3;
+	border-color:#696969 #DCDCDC #DCDCDC #696969;
+} 
+
+
+
+
+/* Corps de la page principale "index.html" */
+#liste li a
+{
+    color: white;
+    text-decoration: none;
+}
+#liste
+{
+    text-align: center;
+}
+#liste li
+{
+   display: inline-block; 
+   color : white;
+   font-size: 250%;
+   margin-right: 15px;
+   margin-bottom: 100px;
+   border: ridge 5px white;
+   width: 250px;
+   
+}
+
+#text
+{
+    color : white;
+    margin : auto;
+    width:70%;
+    font-size: 150%;
+}
+
+#titreindex
+{
+        color : white;
+	text-align: center;
+	font-size : 400%;
+}
+
+.index
+{
+	font-size : 300%;
+	margin-top : 2%;
+	margin-left : 5%;
+	border : 2px solid black ;
+	text-decoration: none;
+	color:white;
+	
+}
+
+/* Page "Mon Compte" */
+
+.comptetab
+{
+	position: relative;
+	margin-top: 3%;
+	margin-left : 37%;
+	border : 3px ridge black;
+}
+
+.inscription
+{
+	position: relative;
+	margin-top: 3%;
+	margin-left : 37%;
+	text-align: center;
+	border : 3px ridge black;
+	text-decoration:none;
+	color : black; 
+	
+}
+
+#box
+{
+	margin-left :100%;
+	position : relative;
+	width: 100%;
+}
+
+#login
+{
+	margin-left : 102% ;
+  max-width : 81%;
+}
+
+/* Page "Panier" */
+
+.panier
+{
+	position :relative ;
+	background-image: url(../images/fond_panier.png);
+	margin-top: 2%;
+ 	margin-left: 3%;
+	height: auto;
+	border : 3px solid;
+}
+
+.panier h1
+{
+	text-decoration: underline;
+	margin-top: 1%;
+}
+
+.achat
+{
+	position : relative ;
+	background-image: url(../images/fond_panier.png);
+	margin-top:1%;
+  margin-left:3%;
+	border : 3px solid;
+	font-weight : bold;
+	font-family: Arial;		
+}
+
+.achat p
+{
+	margin-left : 5%;
+	color:black;
+}
+
+.achat p:visited
+{
+	text-decoration: none;
+	
+}
+
+/* Page "Maillots & Shorts" */
+
+.tri
+{
+	padding:0;
+	margin:0;
+	list-style-type:none; 
+}
+.tri li
+{
+	display: inline-block;
+}
+
+#tenue p
+{
+	font-size: 180%;
+	text-indent: 15%;	
+	color : white;
+}
+
+.trait_dessus
+{
+	border-top: 5px solid black;
+	width : 100%;
+	margin-top: 1%;
+}	
+
+.titre
+{
+	text-indent: 10%;
+	font-size: 250%;
+	font-family: Fantasy;
+}
+.tenues
+{
+	width: 80%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-transition: all 0.5s ease-in-out 0s;
+		-webkit-transition: all 0.5s ease-in-out 0s;
+		-o-transition: all 0.5s ease-in-out 0s;
+		-ms-transition: all 0.5s ease-in-out 0s;
+		transition: all 0.5s ease-in-out 0s;
+}
+
+.tenues:hover
+{
+	-moz-transform: rotate(1deg) scale(1.05);
+	-webkit-transform: rotate(1deg) scale(1.05);
+	-o-transform: rotate(1deg) scale(1.05);
+	-ms-transform: rotate(1deg) scale(1.05);
+	transform: rotate(1deg) scale(1.05);
+}	
+
+
+/* Page "Chaussures" */
+
+#chaussure p
+{
+	font-size: 110%;
+	text-indent: 10%;	
+	color : white;
+}
+
+
+.chaussures
+{
+	width: 80%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-transition: all 0.5s ease-in-out 0s;
+		-webkit-transition: all 0.5s ease-in-out 0s;
+		-o-transition: all 0.5s ease-in-out 0s;
+		-ms-transition: all 0.5s ease-in-out 0s;
+		transition: all 0.5s ease-in-out 0s;
+}
+
+.chaussures:hover
+{
+	-moz-transform: rotate(1deg) scale(1.05);
+	-webkit-transform: rotate(1deg) scale(1.05);
+	-o-transform: rotate(1deg) scale(1.05);
+	-ms-transform: rotate(1deg) scale(1.05);
+	transform: rotate(1deg) scale(1.05);
+}
+
+
+/* Page "Ballons" */
+.test
+{
+    display: inline-block;
+    padding-bottom: 100px;
+    width: 30%;
+    padding-left: 20px;
+
+}
+
+#ballon p
+{       display: inline;
+	font-size: 150%;
+	text-indent: 5%;
+        text-align: center;
+	color : white;
+}
+
+.ballons
+{
+	width: 55%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-transition: all 0.5s ease-in-out 0s;
+		-webkit-transition: all 0.5s ease-in-out 0s;
+		-o-transition: all 0.5s ease-in-out 0s;
+		-ms-transition: all 0.5s ease-in-out 0s;
+		transition: all 0.5s ease-in-out 0s;
+}
+
+.ballons:hover
+{
+	-moz-transform: rotate(1deg) scale(1.05);
+	-webkit-transform: rotate(1deg) scale(1.05);
+	-o-transform: rotate(1deg) scale(1.05);
+	-ms-transform: rotate(1deg) scale(1.05);
+	transform: rotate(1deg) scale(1.05);
+}
+
+/* Page "Gant" */
+
+#gant p
+{
+	font-size: 100%;
+	text-indent: 10%;	
+	color : white;
+}
+
+.gants 
+{
+	width: 80%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-transition: all 0.5s ease-in-out 0s;
+		-webkit-transition: all 0.5s ease-in-out 0s;
+		-o-transition: all 0.5s ease-in-out 0s;
+		-ms-transition: all 0.5s ease-in-out 0s;
+		transition: all 0.5s ease-in-out 0s;
+}
+
+.gants:hover
+{
+	-moz-transform: rotate(1deg) scale(1.05);
+	-webkit-transform: rotate(1deg) scale(1.05);
+	-o-transform: rotate(1deg) scale(1.05);
+	-ms-transform: rotate(1deg) scale(1.05);
+	transform: rotate(1deg) scale(1.05);
+}
+
+/* Page "Equipements" */
+#equipement p
+{
+	font-size: 100%;
+	text-indent: 7%;	
+	color : white;
+}
+
+.equipements
+{
+	width: 80%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		-moz-transition: all 0.5s ease-in-out 0s;
+		-webkit-transition: all 0.5s ease-in-out 0s;
+		-o-transition: all 0.5s ease-in-out 0s;
+		-ms-transition: all 0.5s ease-in-out 0s;
+		transition: all 0.5s ease-in-out 0s;
+}
+.equipements:hover
+{
+	-moz-transform: rotate(1deg) scale(1.05);
+	-webkit-transform: rotate(1deg) scale(1.05);
+	-o-transform: rotate(1deg) scale(1.05);
+	-ms-transform: rotate(1deg) scale(1.05);
+	transform: rotate(1deg) scale(1.05);
+}
+
+/* Page "Qui sommes nous" */
+
+.contact
+{
+	position : relative ;
+	background-image: url(images/fond_panier.png);
+	margin-top: 2%;
+ 	margin-left: 3%;
+	height: auto;
+	width: 93%;
+	border : 3px solid black;
+}
+
+.contact h1
+{
+	text-decoration: underline;
+}
+
+/* Page "Inscription */
+
+.inscrire
+{
+	position : relative ;
+	background-image: url(../images/fond_panier.png);
+	margin-top: 2%;
+ 	margin-left: 30%;
+	height: auto;
+	width: 29%;
+	border : 3px solid black;
+}
+
+.inscrire label
+{
+	display: block;
+	width: 50%;
+	float: left;
+}
+
+
+/* Page "Resultat" */
+
+.resultat
+{
+	text-align : center;
+	position : relative ;
+	background-image: url(../images/fond_panier.png);
+	margin-top:1%;
+  margin-left:7%;
+	border : 3px solid;
+	font-weight : bold;
+	font-family: Arial;		
+}
+	
+.resultat2
+{
+	margin-top : 1%;
+	margin-left : 2%;
+	width: 30%;
+	border : 2px solid;
+	border-color : black ;
+	background-color: white;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.contenu-cadre{
+	padding: 5% 6%;
+	color: #FFF;
+	background: #FFF
+}
+.cadre .contenu-cadre{
+	padding: 5% 6%;
+	color: #FFF;
+	background: #AFAFAF
+}
+
+.cadre {
+	background: #AFAFAF;
+	border-radius: 3px;
+	border-bottom: 1px solid #929292;
+	margin-bottom: 6%;
+}
+
+.cadre-en-tete h2{
+	padding:5% 5% 0% 5%;
+	font-weight:bold;
+	color:#123;
+}
+
+.contenu-cadre strong {
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+.placement-cadre {
+	float: left;
+	width: 25%;
+}
+
+

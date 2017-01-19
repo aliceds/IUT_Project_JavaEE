@@ -5,23 +5,29 @@
  */
 package Servlets;
 
+import Modele.ClientModele;
+import Modele.ConnexionBDModele;
+import Modele.LienBaseModele;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Modele.ClientModele;
-import Modele.ConnexionBDModele;
-import Modele.LienBaseModele;
-import Modele.InscriptionFormulaireModele;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class InscriptionControle extends HttpServlet {
+/**
+ *
+ * @author ducro
+ */
+public class InfoAdminServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +46,10 @@ public class InscriptionControle extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet InscriptionControle</title>");
+            out.println("<title>Servlet InfoAdminServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet InscriptionControle at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet InfoAdminServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,7 +67,42 @@ public class InscriptionControle extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        ConnexionBDModele cnx = new ConnexionBDModele();
+        Connection connexion = cnx.getCnx();
+        System.out.println("Appel connexion");
 
+        LienBaseModele lien = new LienBaseModele();
+        Statement statement = lien.getLien(connexion);
+
+        ResultSet res = null;
+        try {
+            res = statement.executeQuery("SELECT * FROM utilisateur;");
+        } catch (SQLException ex) {
+        }
+
+        List<ClientModele> liste = new ArrayList<>();
+        try {
+            while (res.next()) {
+                ClientModele client = new ClientModele();
+                int idPseudo = res.getInt("idPseudo");
+
+                String pseudo = res.getString("pseudo");
+                String mdp = res.getString("mdp");
+                String typeMembre = res.getString("typeMembre");
+
+                client.setLogin(pseudo);
+                client.setPass(mdp);
+                client.setTypeMembre(typeMembre);
+                client.setIdPseudo(idPseudo);
+                liste.add(client);
+
+            }
+        } catch (SQLException ex) {
+        }
+
+        request.setAttribute("liste", liste);
+
+        this.getServletContext().getRequestDispatcher("/WEB-INF/infoAdmin.jsp").forward(request, response);
     }
 
     /**
@@ -75,23 +116,7 @@ public class InscriptionControle extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-        InscriptionFormulaireModele form = new InscriptionFormulaireModele();
-
-        ClientModele client;
-        try {
-            client = form.inscrireClient(request);
-            String result = form.getResultat();
-            System.out.println(result);
-            request.setAttribute("form", form);
-            request.setAttribute("client", client);
-            request.setAttribute("result", result);
-        } catch (Exception ex) {
-            Logger.getLogger(InscriptionControle.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        this.getServletContext().getRequestDispatcher("/WEB-INF/inscription.jsp").forward(request, response);
-
+        processRequest(request, response);
     }
 
     /**

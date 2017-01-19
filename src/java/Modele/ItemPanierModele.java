@@ -1,6 +1,6 @@
 package Modele;
 
-public class ItemBeanModele {
+public class ItemPanierModele {
 
     private String Partnumber;
     private String Modeldescription;

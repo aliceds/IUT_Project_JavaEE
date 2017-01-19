@@ -49,7 +49,7 @@
 
             <div class="col-10 panier">
                 <h1>Votre panier :</h1>
-                <jsp:useBean id="cart" scope="session" class="Modele.CartBeanModele" />
+                <jsp:useBean id="cart" scope="session" class="Modele.PanierModele" />
                 <c:choose>
                     <c:when test="${cart.lineItemCount==0}" > 
                         Panier vide !

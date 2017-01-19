@@ -51,7 +51,7 @@
                                 
                                     <div class="col-4 inscrire">
                                         <h2>Paiement</h2>
-                                           <jsp:useBean id="cart" scope="session" class="Modele.CartBeanModele" />
+                                           <jsp:useBean id="cart" scope="session" class="Modele.PanierModele" />
                                         <form method="post" action="./PaiementControle">
                                             <label>Nom du titulaire de la carte bancaire</label><input type="text" name="nom">
                                                 <span class="erreur">${form.erreurs['nom']}</span>

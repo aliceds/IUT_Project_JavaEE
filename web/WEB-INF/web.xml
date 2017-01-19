@@ -61,6 +61,18 @@
         <servlet-name>InfoClientControle</servlet-name>
         <servlet-class>Servlets.InfoClientControle</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>InfoAdminServlet</servlet-name>
+        <servlet-class>Servlets.InfoAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CommandeAdminServlet</servlet-name>
+        <servlet-class>Servlets.CommandeAdminServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CommandeClientServlet</servlet-name>
+        <servlet-class>Servlets.CommandeClientServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AboutServlet</servlet-name>
         <url-pattern>/AboutServlet</url-pattern>
@@ -123,6 +135,18 @@
     <servlet-mapping>
         <servlet-name>InfoClientControle</servlet-name>
         <url-pattern>/InfoClientControle</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InfoAdminServlet</servlet-name>
+        <url-pattern>/InfoAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommandeAdminServlet</servlet-name>
+        <url-pattern>/CommandeAdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CommandeClientServlet</servlet-name>
+        <url-pattern>/CommandeClientServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

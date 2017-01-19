@@ -3,7 +3,7 @@ package Modele;
 
 import java.util.ArrayList;
 
-public class CartBeanModele {
+public class PanierModele {
 
     private ArrayList alCartItems = new ArrayList();
     private double dblOrderTotal;
@@ -30,12 +30,12 @@ public class CartBeanModele {
         double dblUnitCost = 0.0;
         int iQuantity = 0;
         int iItemIndex = 0;
-        ItemBeanModele cartItem = null;
+        ItemPanierModele cartItem = null;
         try {
             iItemIndex = Integer.parseInt(strItemIndex);
             iQuantity = Integer.parseInt(strQuantity);
             if (iQuantity > 0) {
-                cartItem = (ItemBeanModele) alCartItems.get(iItemIndex - 1);
+                cartItem = (ItemPanierModele) alCartItems.get(iItemIndex - 1);
                 dblUnitCost = cartItem.getUnitCost();
                 dblTotalCost = dblUnitCost * iQuantity;
                 cartItem.setQuantity(iQuantity);
@@ -55,7 +55,7 @@ public class CartBeanModele {
         double dblTotalCost = 0.0;
         double dblUnitCost = 0.0;
         int iQuantity = 0;
-        ItemBeanModele cartItem = new ItemBeanModele();
+        ItemPanierModele cartItem = new ItemPanierModele();
         try {
             dblUnitCost = Double.parseDouble(strUnitCost);
             iQuantity = Integer.parseInt(strQuantity);
@@ -76,14 +76,14 @@ public class CartBeanModele {
         }
     }
 
-    public void addCartItem(ItemBeanModele cartItem) {
+    public void addCartItem(ItemPanierModele cartItem) {
         alCartItems.add(cartItem);
     }
 
-    public ItemBeanModele getCartItem(int iItemIndex) {
-        ItemBeanModele cartItem = null;
+    public ItemPanierModele getCartItem(int iItemIndex) {
+        ItemPanierModele cartItem = null;
         if (alCartItems.size() > iItemIndex) {
-            cartItem = (ItemBeanModele) alCartItems.get(iItemIndex);
+            cartItem = (ItemPanierModele) alCartItems.get(iItemIndex);
         }
         return cartItem;
     }
@@ -108,7 +108,7 @@ public class CartBeanModele {
     protected void calculateOrderTotal() {
         double dblTotal = 0;
         for (int counter = 0; counter < alCartItems.size(); counter++) {
-            ItemBeanModele cartItem = (ItemBeanModele) alCartItems.get(counter);
+            ItemPanierModele cartItem = (ItemPanierModele) alCartItems.get(counter);
             dblTotal += cartItem.getTotalCost();
         }
         setOrderTotal(dblTotal);

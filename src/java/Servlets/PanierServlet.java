@@ -1,6 +1,6 @@
 package Servlets;
 
-import Modele.CartBeanModele;
+import Modele.PanierModele;
 import Modele.ConnexionBDModele;
 import Modele.LienBaseModele;
 import Modele.Modele;
@@ -109,13 +109,13 @@ public class PanierServlet extends HttpServlet {
     protected void deleteCart(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String strItemIndex = request.getParameter("itemIndex");
-        CartBeanModele cartBean = null;
+        PanierModele cartBean = null;
         Object objCartBean = session.getAttribute("cart");
         if (objCartBean != null) {
-            cartBean = (CartBeanModele) objCartBean;
+            cartBean = (PanierModele) objCartBean;
 
         } else {
-            cartBean = new CartBeanModele();
+            cartBean = new PanierModele();
         }
         cartBean.deleteCartItem(strItemIndex);
     }
@@ -124,12 +124,12 @@ public class PanierServlet extends HttpServlet {
         HttpSession session = request.getSession();
         String strQuantity = request.getParameter("quantity");
         String strItemIndex = request.getParameter("itemIndex");
-        CartBeanModele cartBean = null;
+        PanierModele cartBean = null;
         Object objCartBean = session.getAttribute("cart");
         if (objCartBean != null) {
-            cartBean = (CartBeanModele) objCartBean;
+            cartBean = (PanierModele) objCartBean;
         } else {
-            cartBean = new CartBeanModele();
+            cartBean = new PanierModele();
         }
         cartBean.updateCartItem(strItemIndex, strQuantity);
     }
@@ -140,13 +140,13 @@ public class PanierServlet extends HttpServlet {
         String strDescription = request.getParameter("description");
         String strPrice = request.getParameter("price");
         String strQuantity = request.getParameter("quantity");
-        CartBeanModele cartBean = null;
+        PanierModele cartBean = null;
         Object objCartBean = session.getAttribute("cart");
 
         if (objCartBean != null) {
-            cartBean = (CartBeanModele) objCartBean;
+            cartBean = (PanierModele) objCartBean;
         } else {
-            cartBean = new CartBeanModele();
+            cartBean = new PanierModele();
             session.setAttribute("cart", cartBean);
         }
         cartBean.addCartItem(strModelNo, strDescription, strPrice, strQuantity);

@@ -15,7 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import Modele.CartBeanModele;
+import Modele.PanierModele;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -142,27 +142,27 @@ public class PanierControle extends HttpServlet {
     protected void deleteCart(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String strItemIndex = request.getParameter("itemIndex");
-        CartBeanModele cartBean = null;
-        Object objCartBean = session.getAttribute("cart");
-        if(objCartBean!=null) {
-            cartBean = (CartBeanModele) objCartBean ;
+        PanierModele PanierModele = null;
+        Object ojPanier = session.getAttribute("cart");
+        if(ojPanier!=null) {
+            PanierModele = (PanierModele) ojPanier ;
             
         } else {
-            cartBean = new CartBeanModele();
+            PanierModele = new PanierModele();
         }
-        cartBean.deleteCartItem(strItemIndex);
+        PanierModele.deleteCartItem(strItemIndex);
     }
     
     protected void updateCart(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String strQuantity = request.getParameter("quantity");
         String strItemIndex = request.getParameter("itemIndex");
-        CartBeanModele cartBean = null;
+        PanierModele cartBean = null;
         Object objCartBean = session.getAttribute("cart");
         if(objCartBean!=null) {
-            cartBean = (CartBeanModele) objCartBean ;
+            cartBean = (PanierModele) objCartBean ;
         } else {
-            cartBean = new CartBeanModele();
+            cartBean = new PanierModele();
         }
         cartBean.updateCartItem(strItemIndex, strQuantity);
     }
@@ -174,13 +174,13 @@ public class PanierControle extends HttpServlet {
         String strDescription = request.getParameter("description");
         String strPrice = request.getParameter("price");
         String strQuantity = request.getParameter("quantity");
-        CartBeanModele cartBean = null;
+        PanierModele cartBean = null;
         Object objCartBean = session.getAttribute("cart");
         
         if(objCartBean!=null) {
-            cartBean = (CartBeanModele) objCartBean ;
+            cartBean = (PanierModele) objCartBean ;
         } else {
-            cartBean = new CartBeanModele();
+            cartBean = new PanierModele();
             session.setAttribute("cart", cartBean);
         }
         cartBean.addCartItem(strModelNo, strDescription, strPrice, strQuantity);

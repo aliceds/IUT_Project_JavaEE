@@ -75,14 +75,15 @@
                 <section>	
                     <div class="col-4 inscrire">
                         <div>                    
-                                <c:if test="${client.typeMembre.equals('client')}">
+                                <c:if test="${client.typeMembre.equals('CLIENT')}">
                                     <h1> Bienvenue <c:out value="${client.login}"/> ! ${client.typeMembre}</h1>
                                     <p><a href="./InfoClientServlet">Voir mon compte</></p>
+                                    <p><a href="./CommandeClientServlet">Voir mes commandes</p> 
                                 </c:if>
                                                 
-                                    <c:if test="${client.typeMembre.equals('admin')}">
+                                    <c:if test="${client.typeMembre.equals('ADMIN')}">
                                     <h1> Bienvenue <c:out value="${client.login}"/> ! ${client.typeMembre}</h1>
-                                    <p><a href="">Gérer le site</></p>
+                                    <p><a href="./InfoAdminServlet">Gérer le site</></p>
                                             </c:if>
 
                                         <li><a href="./DeconnexionServlet"><div class="button"><span>Déconnexion</span></div></a></li>                                    

@@ -40,15 +40,6 @@ public class ConnexionBDModele implements java.io.Serializable {
         }
     }
 
-    private String construireUrlJdbc() {
-        String urlJdbc;
-        urlJdbc = "jdbc:mysql://" + hostname + ":" + port
-                + "/" + nomDeLaBase;
-        urlJdbc = urlJdbc
-                + "?user=" + login + "&password=" + password;
-        return urlJdbc;
-    }
-
     private boolean etablirConnexion() {
         boolean statusConnexion = false;
         String urlJdbc;
@@ -56,7 +47,6 @@ public class ConnexionBDModele implements java.io.Serializable {
             Class.forName("com.mysql.jdbc.Driver");
 
             cnx = DriverManager.getConnection("jdbc:mysql://localhost/java_ee","root","");
-            System.out.println("----------- Connexion -------------------");
             statusConnexion = true;
         } catch (Exception e) {
             statusConnexion = false;
